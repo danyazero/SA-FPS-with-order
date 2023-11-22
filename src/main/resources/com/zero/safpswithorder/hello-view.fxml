@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.skin.TableHeaderRow?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.zero.safpswithorder.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="50">
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="lambda_field" maxWidth="80" text="29.75"/>
+                <Label>Інтенсивність потоку заготовок (зав/год)</Label>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="tcp_field" maxWidth="80" text="0.157"/>
+                <Label>Середній час обробки заготовки на верстаті(год)</Label>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="d_field" maxWidth="80" text="2.75"/>
+                <Label text="Прибуток, який одержуємо при обробці однієї деталі (грн)"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="vv_field" maxWidth="80" text="1.57"/>
+                <Label>Витрати на обслуговування одного верстата за годину</Label>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="vn_field" maxWidth="80" text="0.57"/>
+                <Label>Витрати на обслуговування одного накопичувача за годину</Label>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="k_field" maxWidth="80" text="20"/>
+                <Label>Стандартна ємність накопичувача.</Label>
+            </HBox>
+        </VBox>
+        <VBox>
+            <HBox>
+                <Label text="Максимальний прибуток: "/>
+                <Label fx:id="profit_result"/>
+            </HBox>
+            <HBox>
+                <Label text="Накопичувачів: "/>
+                <Label fx:id="drive_result"/>
+            </HBox>
+            <HBox>
+                <Label text="Верстатів: "/>
+                <Label fx:id="machine_result"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+
+    <Button onAction="#onHelloButtonClick" text="Process!"/>
+
+    <GridPane fx:id="grid_result"/>
+</VBox>
