@@ -40,7 +40,16 @@
 
             <HBox alignment="CENTER_LEFT" spacing="15">
                 <TextField fx:id="k_field" maxWidth="80" text="10"/>
-                <Label>Стандартна ємність накопичувача.</Label>
+                <Label>Стандартна ємність накопичувача. (деталей)</Label>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="n_field" maxWidth="80" text="10"/>
+                <Label>Кількість верстатів (Максимальна)</Label>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <TextField fx:id="e_field" maxWidth="80" text="10"/>
+                <Label>Кількість накопичувачів (Максимальна)</Label>
             </HBox>
         </VBox>
         <VBox>

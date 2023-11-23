@@ -24,12 +24,13 @@ import java.util.Random;
 
 public class HelloController {
     public TableView<Double[]> result_table;
-    public Text result_text;
     public GridPane grid_result;
     public Label profit_result;
     public Label drive_result;
     public Label machine_result;
     public VBox result_pane;
+    public TextField e_field;
+    public TextField n_field;
     @FXML
     private TextField k_field;
     @FXML
@@ -51,9 +52,11 @@ public class HelloController {
         double d = Double.parseDouble(d_field.getText());
         double vv = Double.parseDouble(vv_field.getText());
         double vn = Double.parseDouble(vn_field.getText());
+        int e = Integer.parseInt(e_field.getText());
+        int n = Integer.parseInt(n_field.getText());
 
-        FPSService fps = new FPSService(k);
-        BigDecimal[][] matrix = fps.calculate(lambda, tcp, d, vv, vn);
+        FPSService fps = new FPSService(e, n);
+        BigDecimal[][] matrix = fps.calculate(lambda, tcp, d, vv, vn, k);
         result_pane.setVisible(true);
         renderMatrix(matrix);
         profit_result.setText(fps.getProfit().toString());
@@ -65,7 +68,7 @@ public class HelloController {
 
     private void renderMatrix(BigDecimal[][] matrix) {
         grid_result.getChildren().clear();
-        for (int i = 1; i < matrix.length; i++) {
+        for (int i = 1; i < matrix[0].length; i++) {
             Label label = new Label(""+i);
             label.setPadding(new Insets(5, 5, 5, 5));
             grid_result.add(label, 0, i);
@@ -74,7 +77,7 @@ public class HelloController {
             Label num = new Label(""+i);
             num.setPadding(new Insets(5, 5, 5, 5));
             grid_result.add(num, i, 0);
-            for (int j = 1; j < matrix.length; j++) {
+            for (int j = 1; j < matrix[0].length; j++) {
                 Label label = new Label(String.valueOf(matrix[i][j]));
                 label.setPadding(new Insets(5, 5, 5, 5));
                 grid_result.add(label, i, j);

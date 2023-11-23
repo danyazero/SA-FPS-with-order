@@ -6,13 +6,14 @@ import java.math.RoundingMode;
 public class FPSService {
     private BigDecimal profit;
     private BigDecimal[][] resultMatrix;
-    private int k;
+    int n_max, e_max;
     private int machines;
     private int drives;
 
-    public FPSService(int k){
-        this.k = k;
-        resultMatrix = new BigDecimal[k+1][k+1];
+    public FPSService(int n, int e){
+        this.e_max = e;
+        this.n_max = n;
+        resultMatrix = new BigDecimal[e_max+1][n_max+1];
     }
 
     public int getMachines() {
@@ -29,15 +30,15 @@ public class FPSService {
         return profit.setScale(2, RoundingMode.HALF_UP);
     }
 
-    public BigDecimal[][] calculate(double lambda, double tcp, double d, double vv, double vn){
+    public BigDecimal[][] calculate(double lambda, double tcp, double d, double vv, double vn, int k){
         BigDecimal ro = calcRo(lambda, tcp);
         BigDecimal max = BigDecimal.ZERO;
 
         int v = 0;
         int n = 0;
 
-        for (int i = 1; i <= k; i++) {
-            for (int j = 1; j <= k; j++) {
+        for (int i = 1; i <= e_max; i++) {
+            for (int j = 1; j <= n_max; j++) {
                 BigDecimal result = calcPartOne(d, lambda).multiply(BigDecimal.ONE.subtract(calcPartTwo(i, j, ro, k).multiply(calcRight(i, j, ro, k)))).subtract(BigDecimal.valueOf(vv*i-vn*j));
 
                 if (result.compareTo(max) > 0){
