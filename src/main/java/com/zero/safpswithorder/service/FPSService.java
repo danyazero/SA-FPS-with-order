@@ -58,40 +58,46 @@ public class FPSService {
         return resultMatrix;
     }
 
-    private BigDecimal calcRight(int n, int k, BigDecimal ro, int i){
+    private BigDecimal calcRight(int n, int j, BigDecimal ro, int k){
         BigDecimal b = BigDecimal.ZERO;
-        if (ro.subtract(BigDecimal.valueOf(n)).compareTo(BigDecimal.valueOf(1.0e-18)) >= 0) b = calcPartThree(n, ro).multiply(calcPartFour(n, k, ro, i));
+        if (ro.subtract(BigDecimal.valueOf(n)).compareTo(BigDecimal.valueOf(1.0e-18)) >= 0) b = calcPartThree(n, ro).multiply(calcPartFour(n, k, ro, j));
 
-        return BigDecimal.ONE.divide((BigDecimal.ONE.add(sum(n, ro).add(b))), 100, RoundingMode.HALF_UP);
+        BigDecimal res = BigDecimal.ONE.divide((BigDecimal.ONE.add(sum(k, ro).add(b))), 100, RoundingMode.HALF_UP);
+        return res;
     }
 
     private BigDecimal calcRo(double lambda, double tcp){
-        return BigDecimal.valueOf(lambda * tcp);
+        BigDecimal res = BigDecimal.valueOf(lambda * tcp);
+        return res;
     }
 
     private BigDecimal calcPartOne(double d, double lambda){
-        return BigDecimal.valueOf(d * lambda);
+        BigDecimal res = BigDecimal.valueOf(d * lambda);
+        return res;
     }
 
-    private BigDecimal calcPartTwo(int n, int k, BigDecimal ro, int i){
+    private BigDecimal calcPartTwo(int n, int j, BigDecimal ro, int k){
         BigDecimal factorial = factorial(n);
-        BigDecimal numerator = ro.pow(n+i*k);
-        BigDecimal denominator = BigDecimal.valueOf(n).pow(i*k).multiply(factorial);
-        return numerator.divide(denominator,2, RoundingMode.HALF_UP);
+        BigDecimal numerator = ro.pow(n+j*k);
+        BigDecimal denominator = BigDecimal.valueOf(n).pow(j*k).multiply(factorial);
+        BigDecimal res = numerator.divide(denominator,2, RoundingMode.HALF_UP);
+        return res;
     }
 
     private BigDecimal calcPartThree(int n, BigDecimal ro){
         BigDecimal factorial = factorial(n);
         BigDecimal numerator = ro.pow(n + 1);
         BigDecimal denominator = BigDecimal.valueOf(n).multiply(factorial);
-        return numerator.divide(denominator, 2, RoundingMode.HALF_UP);
+        BigDecimal res = numerator.divide(denominator, 2, RoundingMode.HALF_UP);
+        return res;
     }
 
-    private BigDecimal calcPartFour(int n, int k, BigDecimal ro, int i){
+    private BigDecimal calcPartFour(int n, int j, BigDecimal ro, int k){
         BigDecimal divide = ro.divide(BigDecimal.valueOf(n), 2, RoundingMode.HALF_UP);
-        BigDecimal numerator = BigDecimal.ONE.subtract(divide.pow(i*k));
+        BigDecimal numerator = BigDecimal.ONE.subtract(divide.pow(j*k));
         BigDecimal denominator = BigDecimal.ONE.subtract(divide);
-        return numerator.divide(denominator, 2, RoundingMode.HALF_UP);
+        BigDecimal res = numerator.divide(denominator, 2, RoundingMode.HALF_UP);
+        return res;
     }
 
     private BigDecimal factorial(int n){

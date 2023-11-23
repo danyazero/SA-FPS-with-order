@@ -61,6 +61,7 @@ public class HelloController {
 
 
     private void renderMatrix(BigDecimal[][] matrix) {
+        grid_result.getChildren().clear();
         for (int i = 1; i < matrix.length; i++) {
             Label label = new Label(""+i);
             label.setPadding(new Insets(5, 5, 5, 5));
