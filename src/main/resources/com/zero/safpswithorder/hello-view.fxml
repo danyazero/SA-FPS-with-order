@@ -62,5 +62,7 @@
 
     <Button onAction="#onHelloButtonClick" text="Process!"/>
 
-    <GridPane fx:id="grid_result"/>
+    <ScrollPane>
+        <GridPane fx:id="grid_result"/>
+    </ScrollPane>
 </VBox>
