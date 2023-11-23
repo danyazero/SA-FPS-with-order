@@ -38,7 +38,7 @@ public class FPSService {
 
         for (int i = 1; i <= k; i++) {
             for (int j = 1; j <= k; j++) {
-                BigDecimal result = calcPartOne(d, lambda).multiply(BigDecimal.ONE.subtract(calcPartTwo(i, j, ro, k).multiply(calcRight(i, j, ro, k)))).subtract(BigDecimal.valueOf(vv*i+vn*j));
+                BigDecimal result = calcPartOne(d, lambda).multiply(BigDecimal.ONE.subtract(calcPartTwo(i, j, ro, k).multiply(calcRight(i, j, ro, k)))).subtract(BigDecimal.valueOf(vv*i-vn*j));
 
                 if (result.compareTo(max) > 0){
                     max = result;
