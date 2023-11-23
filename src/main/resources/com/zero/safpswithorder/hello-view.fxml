@@ -14,32 +14,32 @@
     <HBox alignment="CENTER_LEFT" spacing="50">
         <VBox>
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="lambda_field" maxWidth="80" text="29.75"/>
+                <TextField fx:id="lambda_field" maxWidth="80" text="81.5"/>
                 <Label>Інтенсивність потоку заготовок (зав/год)</Label>
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="tcp_field" maxWidth="80" text="0.157"/>
+                <TextField fx:id="tcp_field" maxWidth="80" text="0.152"/>
                 <Label>Середній час обробки заготовки на верстаті(год)</Label>
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="d_field" maxWidth="80" text="2.75"/>
+                <TextField fx:id="d_field" maxWidth="80" text="8.52"/>
                 <Label text="Прибуток, який одержуємо при обробці однієї деталі (грн)"/>
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="vv_field" maxWidth="80" text="1.57"/>
+                <TextField fx:id="vv_field" maxWidth="80" text="4.52"/>
                 <Label>Витрати на обслуговування одного верстата за годину</Label>
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="vn_field" maxWidth="80" text="0.57"/>
+                <TextField fx:id="vn_field" maxWidth="80" text="1.52"/>
                 <Label>Витрати на обслуговування одного накопичувача за годину</Label>
             </HBox>
 
             <HBox alignment="CENTER_LEFT" spacing="15">
-                <TextField fx:id="k_field" maxWidth="80" text="20"/>
+                <TextField fx:id="k_field" maxWidth="80" text="10"/>
                 <Label>Стандартна ємність накопичувача.</Label>
             </HBox>
         </VBox>
@@ -62,7 +62,13 @@
 
     <Button onAction="#onHelloButtonClick" text="Process!"/>
 
-    <ScrollPane>
-        <GridPane fx:id="grid_result"/>
-    </ScrollPane>
+    <VBox fx:id="result_pane" visible="false" alignment="BASELINE_CENTER" spacing="10">
+        <Label text="Верстати"/>
+        <HBox alignment="CENTER_LEFT" >
+            <Label text="Накопичувачі" rotate="90"/>
+            <ScrollPane>
+                <GridPane fx:id="grid_result"/>
+            </ScrollPane>
+        </HBox>
+    </VBox>
 </VBox>

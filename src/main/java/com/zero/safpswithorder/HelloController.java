@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -28,6 +29,7 @@ public class HelloController {
     public Label profit_result;
     public Label drive_result;
     public Label machine_result;
+    public VBox result_pane;
     @FXML
     private TextField k_field;
     @FXML
@@ -52,6 +54,7 @@ public class HelloController {
 
         FPSService fps = new FPSService(k);
         BigDecimal[][] matrix = fps.calculate(lambda, tcp, d, vv, vn);
+        result_pane.setVisible(true);
         renderMatrix(matrix);
         profit_result.setText(fps.getProfit().toString());
         drive_result.setText(String.valueOf(fps.getDrives()));
