@@ -1,49 +1,29 @@
 package com.zero.safpswithorder;
 
 import com.zero.safpswithorder.service.FPSService;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Random;
 
 public class HelloController {
-    public TableView<Double[]> result_table;
-    public GridPane grid_result;
-    public Label profit_result;
-    public Label drive_result;
-    public Label machine_result;
-    public VBox result_pane;
-    public TextField e_field;
-    public TextField n_field;
-    @FXML
-    private TextField k_field;
-    @FXML
-    private TextField vv_field;
-    @FXML
-    private TextField vn_field;
-    @FXML
-    private TextField d_field;
-    @FXML
-    private TextField tcp_field;
-    @FXML
-    private TextField lambda_field;
-
+    @FXML private GridPane grid_result;
+    @FXML private Label profit_result;
+    @FXML private Label drive_result;
+    @FXML private Label machine_result;
+    @FXML private VBox result_pane;
+    @FXML private TextField e_field;
+    @FXML private TextField n_field;
+    @FXML private TextField k_field;
+    @FXML private TextField vv_field;
+    @FXML private TextField vn_field;
+    @FXML private TextField d_field;
+    @FXML private TextField tcp_field;
+    @FXML private TextField lambda_field;
     @FXML
     protected void onHelloButtonClick() {
         int k = Integer.parseInt(k_field.getText());
@@ -63,8 +43,6 @@ public class HelloController {
         drive_result.setText(String.valueOf(fps.getDrives()));
         machine_result.setText(String.valueOf(fps.getMachines()));
     }
-
-
 
     private void renderMatrix(BigDecimal[][] matrix) {
         grid_result.getChildren().clear();
@@ -86,8 +64,3 @@ public class HelloController {
     }
 
 }
-
-//substract() віднімання
-//multiply() множення
-//divide() ділення
-//add() додавання
