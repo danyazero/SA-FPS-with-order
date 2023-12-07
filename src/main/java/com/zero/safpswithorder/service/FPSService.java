@@ -61,7 +61,7 @@ public class FPSService {
 
     private BigDecimal calcRight(int n, int j, BigDecimal ro, int k){
         BigDecimal b = BigDecimal.ZERO;
-        if (ro.divide(BigDecimal.valueOf(n), 8, RoundingMode.HALF_UP).compareTo(BigDecimal.ONE) <= 0) b = calcPartThree(n, ro).multiply(calcPartFour(n, k, ro, j));
+        if (ro.divide(BigDecimal.valueOf(n), 8, RoundingMode.HALF_UP).compareTo(BigDecimal.ONE) < 0) b = calcPartThree(n, ro).multiply(calcPartFour(n, k, ro, j));
 
         return BigDecimal.ONE.divide((BigDecimal.ONE.add(sum(n, ro).add(b))), 1000, RoundingMode.HALF_UP);
     }
