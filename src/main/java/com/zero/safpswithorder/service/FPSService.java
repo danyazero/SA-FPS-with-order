@@ -31,7 +31,7 @@ public class FPSService {
     }
 
     public BigDecimal[][] calculate(double lambda, double tcp, double d, double vv, double vn, int k){
-        if (e_max < 1 || e_max < n_max) return resultMatrix;
+        if (e_max < 1 || e_max > n_max) return resultMatrix;
 
         BigDecimal ro = calcRo(lambda, tcp);
         BigDecimal max = BigDecimal.ZERO;

@@ -35,7 +35,7 @@ public class HelloController {
         int e = Integer.parseInt(e_field.getText());
         int n = Integer.parseInt(n_field.getText());
 
-        FPSService fps = new FPSService(e, n);
+        FPSService fps = new FPSService(n, e);
         BigDecimal[][] matrix = fps.calculate(lambda, tcp, d, vv, vn, k);
         result_pane.setVisible(true);
         renderMatrix(matrix);
